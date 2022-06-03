@@ -3,29 +3,32 @@
 {% block content %}
 
 <div>
-
     <article>
-        <div class="bg-gray-100">
-            <div class="max-w-7xl mx-auto py-12 sm:px-6 lg:px-8">
-                <div class="max-w-4xl mx-auto">
-                    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-                        <div>
-                            <dl>
-                                {% for student in students %}
-                                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border border-gray-200">
-                                  <dt class="text-sm font-medium"><h2>{{ student.name }}</h2></dt>
-                                  <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"></dd>
-                                </div>
-                                {% endfor %}
-                              </dl>
+        <div class="max-w-2xl mx-auto py-6 sm:px-6 lg:px-8">
+            <div class="py-12 mt-24">
+                <h1 class="text-4xl leading-8 font-bold">
+                    Students Portal
+                </h1>
+            </div>
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                    <dl>
+                        {% for student in students %}
+                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-t border-gray-200">
+                            <dt class="flex items-center text-sm font-medium">
+                                <figure class="inline w-8 mr-2">
+                                    <img class="h-8 w-8 rounded-full" src="{{ student.image.url }}" alt="">
+                                </figure>
+                                <h2 class="inline">{{ student.name }}</h2>
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"></dd>
                         </div>
-                    </div>
+                        {% endfor %}
+                    </dl>
                 </div>
             </div>
         </div>
-        
     </article>
-
 </div>
 
 {% endblock %}
