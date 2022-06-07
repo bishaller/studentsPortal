@@ -14,15 +14,17 @@
                 <div class="bg-white shadow overflow-hidden sm:rounded-lg">
                     <dl>
                         {% for student in students %}
-                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-t border-gray-200">
-                            <dt class="flex items-center text-sm font-medium">
-                                <figure class="inline w-8 mr-2">
-                                    <img class="h-8 w-8 rounded-full" src="{{ student.image.url }}" alt="">
-                                </figure>
-                                <h2 class="inline">{{ student.name }}</h2>
-                            </dt>
-                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"></dd>
-                        </div>
+                        <a href="{% url 'single' student.id %}" class="block hover:bg-gray-100">
+                            <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-t border-gray-200">
+                                <dt class="flex items-center text-sm font-medium">
+                                    <figure class="inline w-8 mr-2">
+                                        <img class="h-8 w-8 rounded-full" src="{{ student.image.url }}" alt="">
+                                    </figure>
+                                    <h2 class="inline">{{ student.name }}</h2>
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"></dd>
+                            </div>
+                        </a>
                         {% endfor %}
                     </dl>
                 </div>
