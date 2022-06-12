@@ -50,9 +50,9 @@ def add_student_page(request):
 
 def edit_student_page(request, id):
 
-    blog = Blog.objects.get(id=id)
+    student = Student.objects.get(id=id)
 
-    form = AddPostForm(request.POST or None, instance=blog)
+    form = AddPostForm(request.POST or None, instance=student)
     if form.is_valid():
         form.save()
 
