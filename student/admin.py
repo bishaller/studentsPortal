@@ -7,7 +7,7 @@ admin.site.register(Category)
 class StudentAdmin(admin.ModelAdmin):
     list_display = ["name", "views", "created_at"]
     search_fields = ["name", "content"]
-    # list_per_page = 1
+    list_per_page = 30
     # date_hierarchy = "created_at"
     # list_editable = ["views"]
     list_filter = ["category"]
