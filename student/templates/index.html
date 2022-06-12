@@ -10,6 +10,7 @@
                     Students Portal
                 </h1>
                 <header class="col-span-3 sm:col-span-2">
+                    {% include 'includes/categoryNav.html' %}
                     <form action="{% url 'archive' %}" class="mt-1 flex rounded-md shadow-sm relative">
                         <label class="absolute top-7 left-4 text-slate-400" id="search-label">
                             <svg width="20" height="20" class="" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke-width="2" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
@@ -23,17 +24,9 @@
                 <div class="bg-white shadow overflow-hidden sm:rounded-lg">
                     <dl>
                         {% for student in students %}
-                        <a href="{% url 'single' student.id %}" class="block hover:bg-gray-100">
-                            <div class="px-4 flex justify-between items-center py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 border-t border-gray-200">
-                                <dt class="flex items-center text-sm font-medium">
-                                    <figure class="inline w-8 mr-2">
-                                        <img class="h-8 w-8 rounded-full" src="{{ student.image.url }}" alt="">
-                                    </figure>
-                                    <h2 class="inline">{{ student.name }}</h2>
-                                </dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 ">{{ student.category }} </dd>
-                            </div>
-                        </a>
+                        
+                        {% include 'includes/student.html' %}
+
                         {% endfor %}
                     </dl>
                 </div>

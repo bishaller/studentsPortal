@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Student
+from .models import Student, Category
 
 # Create your views here.
 
@@ -22,10 +22,12 @@ def archive_page(request):
     if cat_query:
         cat_obj = Category.objects.get(slug=cat_query)
         students = Student.objects.filter(category=cat_obj)
+        
     elif search_query:
         students = Student.objects.filter(name__icontains=search_query)
     else:
         students = None
+
     ctx = {"students": students}
 
     return render(request, 'archive.html', ctx)
