@@ -17,7 +17,7 @@ class StudentAdmin(admin.ModelAdmin):
         (
             "Post",
             {
-                "fields": (("title", "views"), "content"),
+                "fields": (("name", "views"), "content"),
             },
         ),
         (
