@@ -18,7 +18,7 @@ class Student(models.Model):
     content = models.TextField()
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     views = models.IntegerField(default=0, editable=False)
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name 
